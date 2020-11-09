@@ -7,7 +7,7 @@ class UsersContainer extends Component {
   render() {
     return (
       <div>
-        <LoginInput/>
+        <LoginInput submitLogin={this.props.submitlogin}/>
       </div>
     )
     }
@@ -15,7 +15,7 @@ class UsersContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
     return { 
-        sumbmitlogIn: username => dispatch({type: "LOG_IN", username})}
+        submitlogin: username => dispatch({type: "LOG_IN", username})}
 }
 
 const mapStateToProps = state => {
