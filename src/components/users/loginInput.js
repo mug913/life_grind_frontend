@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
 
-class LoginForm extends Component {
+class LoginInput extends Component {
 state = {
-        text: '',
+        username: '',
     };
 
 handleChange = event => {
     this.setState({
-        text: event.target.value
+        username: event.target.value
     });
 };
+
+handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.sumbmitlogIn(this.state.username)
+  }
 
     render() {
         return(
             <div>
-                <form>
+                <form onSubmit={event => this.handleSubmit(event)}>>
                     <p>
                         <label>Login</label>
                         <input type="text" onChange={this.handleChange} value={this.state.text} />
@@ -26,4 +31,4 @@ handleChange = event => {
     }
 }
 
-export default LoginForm;
+export default LoginInput;
