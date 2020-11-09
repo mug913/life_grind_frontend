@@ -22,7 +22,7 @@ handleSubmit = (event) => {
                 <form onSubmit={event => this.handleSubmit(event)}>>
                     <label>Login</label>
                         <input type="text" onChange={this.handleChange} value={this.state.text} />
-                        <imput type="submit" />
+                        <input type="submit" />
                 </form>
             </div>
         )
