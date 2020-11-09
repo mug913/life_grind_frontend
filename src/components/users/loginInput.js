@@ -13,17 +13,15 @@ handleChange = event => {
 
 handleSubmit = (event) => {
     event.preventDefault()
-    this.props.sumbmitlogIn(this.state.username)
+    this.props.sumbmitLogIn(this.state.username)
   }
 
     render() {
         return(
             <div>
                 <form onSubmit={event => this.handleSubmit(event)}>>
-                    <p>
-                        <label>Login</label>
+                    <label>Login</label>
                         <input type="text" onChange={this.handleChange} value={this.state.text} />
-                    </p>
                         <imput type="submit" />
                 </form>
             </div>

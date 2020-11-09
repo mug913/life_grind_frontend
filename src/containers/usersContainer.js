@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import loginInput from '../components/users/loginInput';
-//import Users from '../components/restaurants/Restaurants';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import LoginInput from '../components/users/loginInput';
 
 class UsersContainer extends Component {
 
-    render() {
-        return(
-            <div>
-                <loginInput submitLogIn={this.props.submitLogin} />
-            </div>
-        )
+  render() {
+    return (
+      <div>
+        <LoginInput/>
+      </div>
+    )
     }
 }
 
