@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class LoginInput extends Component {
 state = {
         username: '',

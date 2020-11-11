@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LoginInput from '../components/users/loginInput';
+import { addUsers} from '../actions/userActions'
 
 class UsersContainer extends Component {
 
   render() {
     return (
       <div>
-        <LoginInput submitLogin={this.props.submitlogin}/>
+        <LoginInput submitLogin={this.props.addUsers}/>
       </div>
     )
     }
@@ -15,7 +16,7 @@ class UsersContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
     return { 
-        submitlogin: username => dispatch({type: "LOG_IN", username})}
+        addUsers: () => dispatch(addUsers())}
 }
 
 const mapStateToProps = state => {
