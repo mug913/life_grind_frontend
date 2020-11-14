@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 
 
-class RegisterUser extends Component {
+class LoginForm extends Component {
 state = {
         username: '',
-        password: '',
-        email: ''
+        password: ''
     };
 
-handleChange = event => {
+handleChange = (field, event) => {
     this.setState({
-        username: event.target.value
+        [field]: event.target.value
     });
 };
 
@@ -18,7 +17,8 @@ handleSubmit = event => {
     event.preventDefault()
     this.props.submitLogin(this.state.username)
     this.setState({
-        username: ""
+        username: "",
+        password: ""
     })
   }
 
@@ -27,15 +27,14 @@ handleSubmit = event => {
             <div>
                 <form onSubmit={this.handleSubmit}>>
                     <label>Login</label>
-                        <input type="text" onChange={this.handleChange} value={this.state.username}/>
+                        <input type="text" onChange={this.handleChange.bind(this, 'username')} value={this.state.username}/>
                     <label>Password</label>
-                        <input type="password" onChange={this.handleChange} value={this.state.password}/>
+                        <input type="password" onChange={this.handleChange.bind(this, 'password')} value={this.state.password}/>
                         <input type="submit" />
-                   <button >Register</button>
                 </form>
             </div>
         )
     }
 }
 
-export default LoginInput;
+export default LoginForm;
