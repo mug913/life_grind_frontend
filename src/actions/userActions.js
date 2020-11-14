@@ -1,7 +1,9 @@
+const base_url = "http://127.0.0.1:9393/api/v1/"
+
 export function addUsers() {
     return (dispatch) => {
       dispatch({ type: 'START_ADD_USERS_REQUEST' });
-      fetch("http://127.0.0.1:9393/api/v1/users/",{
+      fetch(`${base_url}users`,{
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
 
-class LoginInput extends Component {
+class RegisterUser extends Component {
 state = {
         username: '',
+        password: '',
+        email: ''
     };
 
 handleChange = event => {
