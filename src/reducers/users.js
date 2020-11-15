@@ -1,12 +1,11 @@
 
 
-export default function usersReducer(state = {
-    username: ''
-    }, action) {
+export default function usersReducer(state = {}, action) {
+
     switch(action.type) {
-        case "LOG_IN":
-            console.log(action.username)
-            return { ...state, username: state.username.concat({username: action.username})}
+        case "ADD_USER":
+           return { ...state, username: action.payload}
+           
        
         default:
             return state;

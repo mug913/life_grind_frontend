@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import LoginForm from '../components/users/loginForm';
-import { loginUser} from '../actions/userActions'
+
 
 
 class LoginContainer extends Component {
@@ -15,13 +14,5 @@ class LoginContainer extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return { 
-        loginUsers: () => dispatch(loginUser())}
-}
 
-const mapStateToProps = state => {
-    return {username: state.username }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(LoginContainer);
+export default LoginContainer;

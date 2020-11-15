@@ -1,3 +1,5 @@
+
+
 const base_url = "http://127.0.0.1:9393/api/v1/"
 
 export const addUser = (data) => {
@@ -8,8 +10,11 @@ export const addUser = (data) => {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)})
     .then(response => response.json())
-    .then(user => dispatch({ type: 'ADD_USER', payload: user }));
-    };
+    .then(user => {
+                  dispatch({ type: 'ADD_USER', payload: user.username });
+                  dispatch({ type: 'REDIRECT', payload: "/home"});
+                  })
+     }
   }
 
   export function loginUser() {
