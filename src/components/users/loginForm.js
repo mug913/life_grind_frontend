@@ -1,27 +1,32 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { validateUser} from '../../actions/userActions'
+import { withRouter } from 'react-router-dom'
 
 
 class LoginForm extends Component {
-state = {
+state = {userdata: {
         username: '',
         password_digest: ''
-    };
+        },
+        redirect: '/home'
+};
 
 handleChange = (field, event) => {
-    this.setState({
+    this.setState({userdata: {
+        ...this.state.userdata,
         [field]: event.target.value
-    });
+    }});
 };
 
 handleSubmit = event => {
     event.preventDefault()
-    this.props.validateUser(this.state)
+    this.props.validateUser(this.state.userdata)
     this.setState({
         username: "",
         password_digest: ""
     })
+    this.props.history.push(`${this.state.redirect}`)
   }
 
     render() {
@@ -39,4 +44,4 @@ handleSubmit = event => {
     }
 }
 
-export default connect(null,{validateUser})(LoginForm);
+export default withRouter(connect(null,{validateUser})(LoginForm));
