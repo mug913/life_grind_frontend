@@ -9,7 +9,7 @@ state = {userdata: {
         password: '',
         vpassword: '',
         email: ''},
-        redirect: "/home"
+        redirect: '/home'
     };
 
 handleChange = (field, event) => {
@@ -19,12 +19,12 @@ handleChange = (field, event) => {
     }});
 };
 
-handleSubmit = event => {
+handleSubmit = (event) => {
     event.preventDefault()
      if (this.state.userdata.password === this.state.userdata.vpassword) {
-        this.props.addUser(this.state.userdata)
-        this.props.history.push(`${this.state.redirect}`)
-      }
+       this.props.addUser(this.state.userdata)
+       this.props.history.push(`${this.state.redirect}`)
+    }
 }
 
     render() {

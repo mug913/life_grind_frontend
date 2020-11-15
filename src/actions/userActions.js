@@ -1,8 +1,7 @@
 
-
 const base_url = "http://127.0.0.1:9393/api/v1/"
 
-export const addUser = (data) => {
+export function addUser(data) {
     return (dispatch) => {
    //   dispatch({ type: 'START_ADD_USERS_REQUEST' });
       fetch(`${base_url}users`,{
@@ -11,9 +10,8 @@ export const addUser = (data) => {
       body: JSON.stringify(data)})
     .then(response => response.json())
     .then(user => {
-                  dispatch({ type: 'ADD_USER', payload: user.username });
-                  dispatch({ type: 'REDIRECT', payload: "/home"});
-                  })
+                 dispatch({ type: 'ADD_USER', payload: user.username });
+                 })
      }
   }
 
