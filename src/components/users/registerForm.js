@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 class RegisterForm extends Component {
 state = {userdata: {
         username: '',
-        password: '',
+        password_digest: '',
         vpassword: '',
         email: ''},
         redirect: '/home'
@@ -21,7 +21,7 @@ handleChange = (field, event) => {
 
 handleSubmit = (event) => {
     event.preventDefault()
-     if (this.state.userdata.password === this.state.userdata.vpassword) {
+     if (this.state.userdata.password_digest === this.state.userdata.vpassword) {
        this.props.addUser(this.state.userdata)
        this.props.history.push(`${this.state.redirect}`)
     }
@@ -35,7 +35,7 @@ handleSubmit = (event) => {
                     <label>Username:</label>
                         <input type="text" onChange={this.handleChange.bind(this, 'username')} value={this.state.username}/>
                     <label>Password:</label>
-                        <input type="password" onChange={this.handleChange.bind(this, 'password')} value={this.state.password}/>
+                        <input type="password" onChange={this.handleChange.bind(this, 'password_digest')} value={this.state.password_digest}/>
                     <label>Verify Password:</label>
                         <input type="password" onChange={this.handleChange.bind(this, 'vpassword')} value={this.state.vpassword}/>
                     <label>Email:</label>
