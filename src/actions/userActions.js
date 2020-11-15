@@ -1,18 +1,20 @@
+
+
 const base_url = "http://127.0.0.1:9393/api/v1/"
 
-export function addUser() {
+export const addUser = (data) => {
     return (dispatch) => {
-      dispatch({ type: 'START_ADD_USERS_REQUEST' });
+   //   dispatch({ type: 'START_ADD_USERS_REQUEST' });
       fetch(`${base_url}users`,{
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-          username: "test.username",
-          email: "test@email",
-          })})
+      body: JSON.stringify(data)})
     .then(response => response.json())
-    .then(users => dispatch({ type: 'ADD_USER', users }));
-    };
+    .then(user => {
+                  dispatch({ type: 'ADD_USER', payload: user.username });
+                  dispatch({ type: 'REDIRECT', payload: "/home"});
+                  })
+     }
   }
 
   export function loginUser() {
