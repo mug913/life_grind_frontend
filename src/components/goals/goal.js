@@ -10,7 +10,7 @@ class Goal extends Component {
 
   optionDisplay = (goal) => {
   if (goal.name === "new goal") {
-    return <NewGoal goal_position={goal.position}/>;
+    return <NewGoal />;
     }
     return <DeleteGoal goal_id={goal.id} />;
   }
