@@ -1,7 +1,7 @@
 const initialState = {
     username: "user",
     user_id: "",
-    user_goals: [{name: "DDay", position: 0, entries: []},
+    user_goals: [{name: "Day", position: 0, entries: []},
     {name: "new goal", position: 1, entries: []},
     {name: "new goal", position: 2, entries: []},
     {name: "new goal", position: 3, entries: []},
