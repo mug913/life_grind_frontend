@@ -5,8 +5,7 @@ import Goals from '../components/goals/goals'
 class GoalsContainer extends Component {
 
     render() {
-      console.log(this.props)
-        return (
+      return (
         <div>
            <Goals deleteGoal={this.props.deleteGoal} goals={this.props.goals}/>
         </div>

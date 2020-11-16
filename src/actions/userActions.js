@@ -26,8 +26,6 @@ export function addUser(data) {
       }
     }
     
-  
-
   export function loginUser(id) {
     return (dispatch) => {
       fetch(`${base_url}/users/${id}`)
@@ -37,5 +35,4 @@ export function addUser(data) {
         });
     };
   }
-
 

@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import appReducer from './reducers/reducers'
 import Routes from "./routes";
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
+const composeEnhancer = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 const store = createStore(
   appReducer,
