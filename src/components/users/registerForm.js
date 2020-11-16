@@ -8,7 +8,8 @@ state = {userdata: {
         username: '',
         password_digest: '',
         vpassword: '',
-        email: ''},
+        email: '',
+        },
         redirect: '/home'
     };
 
@@ -17,7 +18,7 @@ handleChange = (field, event) => {
         ...this.state.userdata,
         [field]: event.target.value
     }});
-};
+ };
 
 handleSubmit = (event) => {
     event.preventDefault()
@@ -33,13 +34,13 @@ handleSubmit = (event) => {
                 <form onSubmit={this.handleSubmit}>>
                     <label>Create User:</label>
                     <label>Username:</label>
-                        <input type="text" onChange={this.handleChange.bind(this, 'username')} value={this.state.username}/>
+                        <input type="text" onChange={this.handleChange.bind(this, 'username')} value={this.state.userdata.username}/>
                     <label>Password:</label>
-                        <input type="password" onChange={this.handleChange.bind(this, 'password_digest')} value={this.state.password_digest}/>
+                        <input type="password" onChange={this.handleChange.bind(this, 'password_digest')} value={this.state.userdata.password_digest}/>
                     <label>Verify Password:</label>
-                        <input type="password" onChange={this.handleChange.bind(this, 'vpassword')} value={this.state.vpassword}/>
+                        <input type="password" onChange={this.handleChange.bind(this, 'vpassword')} value={this.state.userdata.vpassword}/>
                     <label>Email:</label>
-                        <input type="text" onChange={this.handleChange.bind(this, 'email')} value={this.state.email}/>
+                        <input type="text" onChange={this.handleChange.bind(this, 'email')} value={this.state.userdata.email}/>
                     <input type="submit" />
                 </form>
             </div>

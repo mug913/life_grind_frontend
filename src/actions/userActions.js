@@ -6,12 +6,13 @@ export function addUser(data) {
       fetch(`${base_url}users`,{
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data)})
+      body: JSON.stringify(data)}
+      )
     .then(response => response.json())
     .then(user => {
-                 dispatch({ type: 'ADD_USER', username: user.username, user_id: user.id });
+                 dispatch({ type: 'ADD_USER', username: user.username, user_id: user.id })
                  })
-     }
+                }
   }
 
   export function validateUser(data) {
