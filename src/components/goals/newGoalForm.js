@@ -6,26 +6,54 @@ import NewEntryFields from './newEntryFields'
 
 class NewGoalForm extends Component {
 
-  
-
-    state = {goaldata: {
-            name: '',
-            position: '',
-            field_number: 0,
-            level: 0,
-            streak: 0},
-            }
+    constructor(props){
+        super(props);
+        this.handleFieldChange = this.handleFieldChange.bind(this) 
+        this.state = {
+            goaldata: {
+                name: '',
+                position: '',
+                field_number: 0,
+                level: 0,
+                streak: 0},  
+            entrydata: {
+                field_1_name: null,
+                field_1_type: null,
+                field_1_data: null,
+                field_2_name: null,
+                field_2_type: null,
+                field_2_data: null,
+                field_3_name: null,
+                field_3_type: null,
+                field_3_data: null}
+            };
+        }
 
 
 
 handleChange = (field, event) => {
+    console.log(this.state)
     this.setState({...this.state, goaldata: {
         ...this.state.goaldata,
         [field]: event.target.value
     }});
  };
 
-
+handleFieldChange = (field, number, event) => {
+    if(field==='data'){
+        let dataType = isNaN(event.target.value) ? 'String' : 'Number'
+    this.setState({...this.state, entrydata: {
+        ...this.state.entrydata,
+        [`field_${number}_${field}`]: event.target.value,
+       [`field_${number}_type`]: dataType,
+    }});}
+    else{
+        this.setState({...this.state, entrydata: {
+        ...this.state.entrydata,
+        [`field_${number}_${field}`]: event.target.value,
+   }})};
+};
+  
 
 displayAddFieldButton = () => {
   if (this.state.goaldata.field_number < 3) {
@@ -46,13 +74,13 @@ render() {
 
     for (let i = 0; i < this.state.goaldata.field_number; i++) {
         fields.push(
-          <NewEntryFields number={`field-${i}`} onChange={this.onChange} />
+          <NewEntryFields number={`${i+1}`} handleFieldChange={this.handleFieldChange} />
         )}
 
     return(
         <div>
             <label>Create Goal:</label>
-            {this.displayAddFieldButton()}       
+         
             <label>Goal Name:</label>
                 <input type="text" onChange={this.handleChange.bind(this, 'name')} value={this.state.goaldata.name}/>
                 {this.displayAddFieldButton()}    
