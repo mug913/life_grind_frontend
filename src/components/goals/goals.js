@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Goal from '../goals/goal'
+import Goal from './goal'
 
 class Goals extends Component {
   render() {
     return(
-      <ul>
-        {this.props.goals.map(goal => <Goal goal={goal} deleteGoal={this.props.deleteGoal}/>)}
-      </ul>
+     <div>
+        {this.props.goals.map(goal => <Goal goal={goal} deleteGoal={this.props.deleteGoal} />)}
+    </div>
     );
   }
 };

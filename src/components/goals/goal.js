@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import NewGoal from './newGoal';
+import DeleteGoal from './deleteGoal';
 
 class Goal extends Component {
 
@@ -6,18 +8,27 @@ class Goal extends Component {
     this.props.deleteGoal(this.props.goal.id)
   }
 
+  optionDisplay = (goal) => {
+  if (goal.name === "new goal") {
+    return <NewGoal goal_position={goal.position}/>;
+    }
+    return <DeleteGoal goal_id={goal.id} />;
+  }
+
 
   render() {
     const { goal } = this.props;
-
+    if (goal.position !== 0 ) {
     return (
       <div>
-        <li>
-          {goal.name}
-          <button onClick={this.handleOnClick}> X </button>
-         </li>
+         <li key= {goal.id} >
+        {goal.name}
+        {this.optionDisplay(goal)}
+        </li>
       </div>
     );
+    }
+    return null
   }
 };
 
