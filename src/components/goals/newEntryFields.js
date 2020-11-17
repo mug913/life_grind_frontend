@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { addGoal} from '../../actions/goalActions'
+
 
 
 class NewEntryFields extends Component {
@@ -9,10 +8,6 @@ class NewEntryFields extends Component {
 
 handleChange = (field,event) => {
   this.props.handleFieldChange(field,this.props.number,event)
-  //  this.setState({...this.state, entrydata: {
-   //     ...this.state.entrydata,
-    //    [`field_${this.props.number}_${field}`]: event.target.value
-    //}});
  };
 
 
@@ -35,4 +30,4 @@ render() {
     }
 }
 
-export default connect(null,{addGoal})(NewEntryFields);
+export default NewEntryFields;

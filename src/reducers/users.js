@@ -27,6 +27,7 @@ export default function usersReducer(state = initialState, action) {
 }
 
 function insertGoals(array, action) {
+    console.log(action)
     action.forEach(g => {
     array = [...array.slice(0, g.position),
             g,

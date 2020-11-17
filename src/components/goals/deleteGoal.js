@@ -4,7 +4,7 @@ import { deleteGoal } from '../../actions/goalActions'
 
 class DeleteGoal extends Component {
 
-    handleOnClick = event => {
+    handleOnClick = () => {
         this.props.deleteGoal(this.props.goal_id)
     }
 

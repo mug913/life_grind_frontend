@@ -11,7 +11,7 @@ class NewGoal extends Component {
 
   formDisplay = () => {
     if (this.state.showForm) {
-      return <NewGoalForm />;
+      return <NewGoalForm goal_position={this.props.goal_position}/>;
       }
       return null;
     }

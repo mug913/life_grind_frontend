@@ -12,11 +12,11 @@ class NewGoalForm extends Component {
         this.state = {
             goaldata: {
                 name: '',
-                position: '',
+                position: this.props.goal_position,
                 field_number: 0,
                 level: 0,
                 streak: 0},  
-            entrydata: {
+            recorddata: {
                 field_1_name: null,
                 field_1_type: null,
                 field_1_data: null,
@@ -42,14 +42,14 @@ handleChange = (field, event) => {
 handleFieldChange = (field, number, event) => {
     if(field==='data'){
         let dataType = isNaN(event.target.value) ? 'String' : 'Number'
-    this.setState({...this.state, entrydata: {
-        ...this.state.entrydata,
+    this.setState({...this.state, recorddata: {
+        ...this.state.recorddata,
         [`field_${number}_${field}`]: event.target.value,
        [`field_${number}_type`]: dataType,
     }});}
     else{
-        this.setState({...this.state, entrydata: {
-        ...this.state.entrydata,
+        this.setState({...this.state, recorddata: {
+        ...this.state.recorddata,
         [`field_${number}_${field}`]: event.target.value,
    }})};
 };
@@ -57,7 +57,7 @@ handleFieldChange = (field, number, event) => {
 
 displayAddFieldButton = () => {
   if (this.state.goaldata.field_number < 3) {
-    return  <button onClick={this.handleFieldClick}> Add Field </button>;
+    return  <input type="button" onClick={this.handleFieldClick} value="Add Field" />;
     }
     return null;
   }
@@ -69,6 +69,12 @@ handleFieldClick = () =>{
     }}); 
 }
 
+handleSubmit = event => {
+    event.preventDefault()
+    this.props.addGoal(this.props.user_id, this.state)
+   // this.props.history.push(`${this.state.redirect}`)
+  }
+
 render() {
     const fields = [];
 
@@ -79,15 +85,25 @@ render() {
 
     return(
         <div>
+
             <label>Create Goal:</label>
-         
+           <form onSubmit={this.handleSubmit}>>
             <label>Goal Name:</label>
                 <input type="text" onChange={this.handleChange.bind(this, 'name')} value={this.state.goaldata.name}/>
                 {this.displayAddFieldButton()}    
                 {fields}
+                <input type="submit" />
+            </form>
         </div>        
         )
     }
 }
 
-export default connect(null,{addGoal})(NewGoalForm);
+
+const mapStateToProps = state => {
+    return {
+      user_id: state.usersReducer.user_id
+     }
+}
+
+export default connect(mapStateToProps,{addGoal})(NewGoalForm);
