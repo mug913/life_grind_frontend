@@ -4,19 +4,26 @@ import Record from '../components/records/record'
 
 class RecordsContainer extends Component {
 
+    recordDisplay = (record, field_number) => {
+        if(!!record){
+        return <Record records={record[0]} field_number={field_number}/>
+        }
+        return null
+    }
+
     render() {
       return (
         <div>
-           <Record goals={this.props.record}/>
+           {this.recordDisplay(this.props.records[this.props.position], this.props.field_number)}
         </div>
       )
       }
 }
   
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    record: state.recordsReducer.goal_record
+    records: state.recordsReducer.goal_records
    }
 }
 
