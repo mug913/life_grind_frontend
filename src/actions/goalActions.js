@@ -1,3 +1,5 @@
+import {addRecord}from './recordActions'
+
 
 const base_url = "http://127.0.0.1:9393/api/v1/"
 
@@ -13,25 +15,26 @@ const base_url = "http://127.0.0.1:9393/api/v1/"
 
   export function deleteGoal(goal_id) {
     return (dispatch) => {
-      fetch(`${base_url}goals/${goal_id}`, {
-          method: 'DELETE'})
-      .then(response => response.json())
-      .then(response => {
-        dispatch({ type: 'DELETE_GOAL_ENTRY', goal_id: goal_id });
-        });
+        fetch(`${base_url}goals/${goal_id}`, {
+            method: 'DELETE'})
+        .then(response => response.json())
+        .then(goal_id => dispatch({ type: 'DELETE_GOAL', goal_id }));
     };
-  }
-
+}
+  
   export function addGoal(user_id,data) {
     return (dispatch) => {
       fetch(`${base_url}users/${user_id}/goals`,{
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data)}
+      body: JSON.stringify(data.goaldata)}
       )
     .then(response => response.json())
     .then(goal => {
-                 dispatch({ type: 'ADD_GOAL' })
+                 dispatch(addRecord(goal.user_id,goal.id,data))
+                 dispatch({ type: 'ADD_GOAL', payload: goal })
                  })
-                }
+    }
   }
+
+ 

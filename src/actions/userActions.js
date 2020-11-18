@@ -9,10 +9,9 @@ export function addUser(data) {
       body: JSON.stringify(data)}
       )
     .then(response => response.json())
-    .then(user => {
-                 dispatch({ type: 'ADD_USER', username: user.username, user_id: user.id })
-                 })
-                }
+    .then(user => {dispatch(validateUser(user))
+    })
+    }
   }
 
   export function validateUser(data) {
@@ -31,7 +30,8 @@ export function addUser(data) {
       fetch(`${base_url}/users/${id}`)
       .then(response => response.json())
       .then(user_data => {
-        dispatch({ type: 'LOGIN_USER', payload: user_data });
+        dispatch({ type: 'LOGIN_USER', payload: user_data })
+        dispatch({ type: 'LOAD_GOALS', payload: user_data });
         });
     };
   }
