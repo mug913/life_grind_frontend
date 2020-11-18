@@ -10,8 +10,8 @@ user_goals: [{name: "Day", position: 0, entries: []},
 export default function goalsReducer(state = initialGoalState, action) {
 
     switch(action.type) {
-        case "GET_GOAL_ENTRIES":
-            return { ...state, }
+        // case "GET_GOAL_ENTRIES":
+        //     return { ...state, }
 
         case "LOAD_GOALS":
             return {...state, 
