@@ -15,18 +15,21 @@ export default function goalsReducer(state = initialGoalState, action) {
 
         case "LOAD_GOALS":
             return {...state, 
-                    user_goals: insertGoals(state.user_goals, action.payload.goals) }
+                    user_goals: insertNewGoals(state.user_goals, action.payload.goals) }
 
         case "DELETE_GOAL":
-            console.log(action.goal_id)
             return { ...state, 
                     user_goals: resetGoalSlot(state.user_goals, action.goal_id)}
                  
+        case "ADD_GOAL":
+            return {...state, 
+                user_goals: insertNewGoal(state.user_goals, action.payload) }
+
         default:
             return {...state};
     }
 
-    function insertGoals(array, action) {
+    function insertNewGoals(array, action) {
         action.forEach(g => {
         array = [...array.slice(0, g.position),
                 g,
@@ -35,15 +38,16 @@ export default function goalsReducer(state = initialGoalState, action) {
         return array
     }
 
+    function insertNewGoal(array, action) {
+        return [...array.slice(0, action.position),
+                action,
+                ...array.slice(action.position+1)]
+    }
+
     function resetGoalSlot(array, action) {
-        console.log(action.goal_id)
         return array.map((g) => {
             if (g.id !== action.id) {
-                console.log(`false ${g.id}`)
-                console.log(action.id)
                 return g}
-                console.log(`true ${g.id}`)
-                console.log(action.id)
             return {name: "new goal", position: g.position, entries: []}
         })
     }

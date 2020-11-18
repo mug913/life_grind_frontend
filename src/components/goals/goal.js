@@ -14,15 +14,22 @@ class Goal extends Component {
     }
     return <DeleteGoal goal_id={goal.id} />;
   }
-
-
+  
   render() {
+    let streak,level = ""
     const { goal } = this.props;
+    if (goal.name !== 'new goal'){
+    streak = `Streak: ${goal.streak}`
+    level = `Level: ${goal.level}`}
     if (goal.position !== 0 ) {
     return (
       <div>
          <li key= {goal.id} >
         {goal.name}
+        <div>
+        {streak}{"\n"}
+        {level}{"\n"}
+        </div>
         {this.optionDisplay(goal)}
         </li>
       </div>

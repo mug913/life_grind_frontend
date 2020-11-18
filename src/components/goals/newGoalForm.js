@@ -17,6 +17,7 @@ class NewGoalForm extends Component {
                 level: 0,
                 streak: 0},  
             recorddata: {
+                date: null,
                 field_1_name: null,
                 field_1_type: null,
                 field_1_data: null,
@@ -50,6 +51,7 @@ handleFieldChange = (field, number, event) => {
     else{
         this.setState({...this.state, recorddata: {
         ...this.state.recorddata,
+        date: Date.now(),
         [`field_${number}_${field}`]: event.target.value,
    }})};
 };
@@ -72,8 +74,7 @@ handleFieldClick = () =>{
 handleSubmit = event => {
     event.preventDefault()
     this.props.addGoal(this.props.user_id, this.state)
-   // this.props.history.push(`${this.state.redirect}`)
-  }
+ }
 
 render() {
     const fields = [];
