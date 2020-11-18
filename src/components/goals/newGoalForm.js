@@ -33,7 +33,6 @@ class NewGoalForm extends Component {
 
 
 handleChange = (field, event) => {
-    console.log(this.state)
     this.setState({...this.state, goaldata: {
         ...this.state.goaldata,
         [field]: event.target.value
@@ -41,17 +40,19 @@ handleChange = (field, event) => {
  };
 
 handleFieldChange = (field, number, event) => {
+    let today = new Date()
+    let finalDate = `${today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDay()}`
     if(field==='data'){
         let dataType = isNaN(event.target.value) ? 'String' : 'Number'
     this.setState({...this.state, recorddata: {
         ...this.state.recorddata,
+        date: finalDate,
         [`field_${number}_${field}`]: event.target.value,
        [`field_${number}_type`]: dataType,
     }});}
     else{
         this.setState({...this.state, recorddata: {
         ...this.state.recorddata,
-        date: Date.now(),
         [`field_${number}_${field}`]: event.target.value,
    }})};
 };

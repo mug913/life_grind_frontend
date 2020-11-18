@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import usersReducer from './users'
-import navReducer from './navigation'
+import recordsReducer from './records'
 import goalsReducer  from './goals'
 
 const appReducer = combineReducers({
     usersReducer,
-    navReducer,
-    goalsReducer
+    goalsReducer,
+    recordsReducer
 })
 
 export default appReducer

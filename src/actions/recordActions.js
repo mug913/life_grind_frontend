@@ -10,7 +10,17 @@ export function addRecord(user_id,goal_id,data) {
     )
   .then(response => response.json())
   .then(record => {
-               dispatch({ type: 'ADD_GOAL_RECORD', payload: record })
+               dispatch(getGoalRecords(user_id,goal_id))
                })
   }
 }
+
+export function getGoalRecords(user_id,goal_id) {
+    return (dispatch) => {
+      fetch(`${base_url}/users/${user_id}/goals/${goal_id}/goal_records`)
+      .then(response => response.json())
+      .then(goal_data => {
+        dispatch({ type: 'GET_GOAL_RECORDS', goal_id, payload: goal_data });
+        });
+    };
+  }

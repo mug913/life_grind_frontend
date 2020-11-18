@@ -4,20 +4,31 @@ import Record from '../components/records/record'
 
 class RecordsContainer extends Component {
 
+    recordDisplay = (record, field_number) => {
+        console.log(`record:${!!(record)}`)
+        console.log(`props.record${typeof record}`)
+        if(!!(record)){
+           return <Record record={record} field_number={field_number}/>
+        }
+        return null
+    }
+
     render() {
-      return (
+       
+       
+        console.log(`pos${this.props.position}`)
+        return (
         <div>
-           <Record goals={this.props.record}/>
+            {this.recordDisplay(this.props.records[this.props.position][0], this.props.field_number)}
         </div>
-      )
-      }
+    )}
 }
   
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    record: state.recordsReducer.goal_record
-   }
+    records: state.recordsReducer.goal_records
+ }
 }
 
 export default connect(mapStateToProps)(RecordsContainer);
