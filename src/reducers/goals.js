@@ -1,10 +1,10 @@
 const initialGoalState = {
 user_goals: [{name: "Day", position: 0, entries: []},
-{name: "new goal", position: 1, entries: []},
-{name: "new goal", position: 2, entries: []},
-{name: "new goal", position: 3, entries: []},
-{name: "new goal", position: 4, entries: []},
-{name: "new goal", position: 5, entries: []}]
+{name: "new goal", position: 1, field_number: 0, entries: []},
+{name: "new goal", position: 2, field_number: 0, entries: []},
+{name: "new goal", position: 3, field_number: 0, entries: []},
+{name: "new goal", position: 4, field_number: 0, entries: []},
+{name: "new goal", position: 5, field_number: 0, entries: []}]
 }
 
 export default function goalsReducer(state = initialGoalState, action) {

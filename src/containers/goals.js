@@ -5,6 +5,12 @@ import Goals from '../components/goals/goals'
 class GoalsContainer extends Component {
 
     render() {
+      if (this.props.goals.length === 0) {
+        return (
+          <div>
+            {"loading"}
+          </div>)
+      }
       return (
         <div>
            <Goals deleteGoal={this.props.deleteGoal} goals={this.props.goals}/>

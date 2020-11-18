@@ -10,7 +10,7 @@ export function addRecord(user_id,goal_id,data) {
     )
   .then(response => response.json())
   .then(record => {
-               dispatch({ type: 'ADD_GOAL_RECORD', payload: record })
+               dispatch(getGoalRecords(user_id,goal_id))
                })
   }
 }
