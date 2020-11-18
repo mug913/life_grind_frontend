@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import NewRecord from './newRecord';
 
 class Record extends Component {
 
@@ -10,18 +9,16 @@ class Record extends Component {
         let name = record[`field_${i+1}_name`]
         let data = record[`field_${i+1}_data`]
          ++i
-         console.log(allFields)
         allFields.push(`${name}: ${data}`)
     }
-    console.log(allFields)
         return allFields.map((f) => <li>{f}</li>)
     }
 
   render() {
-  
+ 
     const records = this.props.records
     const field_number = this.props.field_number
-  
+    console.log(records)
     return (
      
         <div>
