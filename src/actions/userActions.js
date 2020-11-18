@@ -30,7 +30,8 @@ export function addUser(data) {
       fetch(`${base_url}/users/${id}`)
       .then(response => response.json())
       .then(user_data => {
-        dispatch({ type: 'LOGIN_USER', payload: user_data });
+        dispatch({ type: 'LOGIN_USER', payload: user_data })
+        dispatch({ type: 'LOAD_GOALS', payload: user_data });
         });
     };
   }

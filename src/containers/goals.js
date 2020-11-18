@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    goals: state.usersReducer.user_goals
+    goals: state.goalsReducer.user_goals
    }
 }
 
