@@ -31,7 +31,7 @@ class Goal extends Component {
             {streak}{"\n"}
             {level}{"\n"}
             <div>
-              <RecordsContainer position={goal.position} field_number ={goal.field_number} />
+              <RecordsContainer goal_position={goal.position} field_number ={goal.field_number} />
             </div>
         </div>
         {this.optionDisplay(goal)}
