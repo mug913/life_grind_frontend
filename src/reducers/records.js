@@ -12,12 +12,16 @@ const initialRecordState = {
 
             case "GET_GOAL_RECORDS":
                 return {...state, 
-                    goal_records: addGoalRecord(state.goal_records, action.goal_data.goaldata.position, action.goal_data.recorddata)}
+                    goal_records: addGoalRecord(state.goal_records, action.record_data, action.goal.position)}
 
             case "CLEAR_GOAL_RECORDS":
                 return {...state, 
                     goal_records: clearGoalRecords(state.goal_records, action.goal.position)}
 
+            case "ADD_GOAL_RECORD":
+                return {...state, 
+                    goal_records: addGoalRecord(state.goal_records, action.record_data, action.goal_data.goaldata.position, action.record_data)}
+                 
             default:
                 return {...state};
         }
@@ -32,7 +36,7 @@ const initialRecordState = {
         }
 
  
-    function addGoalRecord(array, position, recorddata) {
+    function addGoalRecord(array, recorddata, position ) {
         const target = array[position]
         const result = [...target.slice(0),recorddata]
         return [...array.slice(0,position),

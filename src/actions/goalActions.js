@@ -22,7 +22,7 @@ const base_url = "http://127.0.0.1:9393/api/v1/"
       )
     .then(response => response.json())
     .then(goal => {
-                 dispatch(addRecord(goal.user_id,goal.id,data))
+                 dispatch(addRecord(goal.user_id, goal, data.recorddata))
                  dispatch({ type: 'ADD_GOAL', payload: goal })
                  })
     }

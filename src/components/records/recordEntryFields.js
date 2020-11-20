@@ -5,22 +5,18 @@ class RecordEntryFields extends Component {
 
    
 
-handleChange = (field,event) => {
-  this.props.handleFieldChange(field,this.props.number,event)
+handleChange = (event) => {
+  this.props.handleFieldChange(this.props.number, event)
  };
 
-
-handleSubmit = (event) => {
-    event.preventDefault()
-       this.props.addGoal(this.state)
-}
-
 render() {
+    const recordZero = this.props.records[0]
+    const data = [recordZero.field_1_name ,recordZero.field_2_name ,recordZero.field_3_name]
     return(
         <div>
             <form >
-                <label>{this.props.records[0].[`field_${number}_name]`}:</label>
-                <input type="text" onChange={this.handleChange.bind(this, 'data')} />          
+                <label>{data[this.props.number-1]}:</label>
+                <input type="text" onChange={this.handleChange.bind(this)} />          
                 </form>
             </div>
         )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-//import { addGoal} from '../../actions/goalActions'
+import { addRecord } from '../../actions/recordActions'
 import RecordEntryFields from './recordEntryFields'
 
 
@@ -9,45 +9,36 @@ class AddRecordForm extends Component {
     constructor(props){
         super(props);
         this.handleFieldChange = this.handleFieldChange.bind(this) 
+        const recordZero = this.props.records[0]
         this.state = {
-            recordFormData: {
+            goal_record: {
                 date: null,
+                field_1_name: recordZero.field_1_name,
+                field_1_type: recordZero.field_1_type,
                 field_1_data: null,
+                field_2_name: recordZero.field_2_name,
+                field_2_type: recordZero.field_2_type,
                 field_2_data: null,
+                field_3_name: recordZero.field_3_name,
+                field_3_type: recordZero.field_3_type,
                 field_3_data: null}
             };
     }
 
 
 
-    handleChange = (field, event) => {
-        this.setState({...this.state, recordFormData: {
-            ...this.state.recordFormData,
-            [field]: event.target.value
-        }});
- };
-
-handleFieldChange = (field, number, event) => {
+handleFieldChange = (number, event) => {
     let today = new Date()
-    let finalDate = `${today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDay()}`
-    if(field==='data'){
-        let dataType = isNaN(event.target.value) ? 'String' : 'Number'
-    this.setState({...this.state, recorddata: {
-        ...this.state.recorddata,
+    let finalDate = `${today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDay() + 'T'+today.getHours()+':'+today.getMinutes()+':'+today.getSeconds()}`
+    this.setState({...this.state, goal_record: {
+        ...this.state.goal_record,
         date: finalDate,
-        [`field_${number}_${field}`]: event.target.value,
-       [`field_${number}_type`]: dataType,
-    }});}
-    else{
-        this.setState({...this.state, recorddata: {
-        ...this.state.recorddata,
-        [`field_${number}_${field}`]: event.target.value,
-   }})};
-};
-  
+        [`field_${number}_data`]: event.target.value
+}})};
+
 handleSubmit = event => {
     event.preventDefault()
-    this.props.addGoal(this.props.goal.user_id, this.state)
+    this.props.addRecord(this.props.goal.user_id, this.props.goal, this.state)
  }
 
 render() {
@@ -70,8 +61,9 @@ render() {
 
 const mapStateToProps = (state,ownProps) => {
     return {
-      goal: state.goalsReducer.user_goals[ownProps.goal_position]
+      goal: state.goalsReducer.user_goals[ownProps.goal_position],
+      records: state.recordsReducer.goal_records[ownProps.goal_position]
      }
 }
 
-export default connect(mapStateToProps)(AddRecordForm);
+export default connect(mapStateToProps,{addRecord})(AddRecordForm);

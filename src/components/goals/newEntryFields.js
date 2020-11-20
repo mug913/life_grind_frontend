@@ -11,11 +11,6 @@ handleChange = (field,event) => {
  };
 
 
-handleSubmit = (event) => {
-    event.preventDefault()
-       this.props.addGoal(this.state)
-}
-
 render() {
     return(
         <div>
