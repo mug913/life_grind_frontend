@@ -16,10 +16,11 @@ class RecordsContainer extends Component {
     render() {
        
        
-        console.log(`pos${this.props.position}`)
+        const records = this.props.records[this.props.position]
+        console.log(`records${records}`)
         return (
         <div>
-            {this.recordDisplay(this.props.records[this.props.position][0], this.props.field_number)}
+            {this.recordDisplay(records[records.length-1], this.props.field_number)}
         </div>
     )}
 }
