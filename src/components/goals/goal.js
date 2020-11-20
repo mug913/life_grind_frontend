@@ -13,7 +13,7 @@ class Goal extends Component {
   if (goal.name === "new goal") {
     return <NewGoal goal_position={goal.position}/>;
     }
-    return <DeleteGoal goal_id={goal.id} />;
+    return <DeleteGoal goal={goal} />;
   }
   
   render() {

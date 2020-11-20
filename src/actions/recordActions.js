@@ -15,6 +15,7 @@ export function addRecord(user_id,goal_id,goal_data) {
   }
 }
 
+
 // export function getGoalRecords(user_id, goal_id, goal_data) {
 //     return (dispatch) => {
 //       fetch(`${base_url}/users/${user_id}/goals/${goal_id}/goal_records`)

@@ -48,7 +48,7 @@ export default function goalsReducer(state = initialGoalState, action) {
         return array.map((g) => {
             if (g.id !== action.id) {
                 return g}
-            return {name: "new goal", position: g.position, entries: []}
+        return {name: "new goal", position: g.position, entries: []}
         })
     }
 }

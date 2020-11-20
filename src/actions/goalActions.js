@@ -3,13 +3,14 @@ import {addRecord}from './recordActions'
 
 const base_url = "http://127.0.0.1:9393/api/v1/"
 
-  export function deleteGoal(goal_id) {
+  export function deleteGoal(goal) {
     return (dispatch) => {
-        fetch(`${base_url}goals/${goal_id}`, {
+        fetch(`${base_url}goals/${goal.id}`, {
             method: 'DELETE'})
         .then(response => response.json())
-        .then(goal_id => dispatch({ type: 'DELETE_GOAL', goal_id }));
-    };
+        .then(goal_id => {dispatch({ type: 'DELETE_GOAL', goal_id })
+                         dispatch({ type: 'CLEAR_GOAL_RECORDS', goal})});
+        };
 }
   
   export function addGoal(user_id,data) {
