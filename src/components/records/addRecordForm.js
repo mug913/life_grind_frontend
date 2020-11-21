@@ -49,7 +49,7 @@ render() {
         )}
     return(
         <div>
-            <form onSubmit={this.handleSubmit}>>
+            <form onSubmit={this.handleSubmit}>
                 {fields}
                 <input type="submit" />
             </form>

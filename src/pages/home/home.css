@@ -1,0 +1,27 @@
+.Title  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .Goals  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+  }
+
+  .Goallist  {
+    padding: 20px;
+  }
+
+  .Goal {
+    padding: 20px;
+  }
+
+  

@@ -24,7 +24,7 @@ class Goal extends Component {
     level = `Level: ${goal.level}`}
     if (goal.position !== 0 ) {
     return (
-      <div>
+      <div className="Goal">
         <li key= {goal.id} >
         {goal.name}
         <div>

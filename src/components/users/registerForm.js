@@ -31,7 +31,7 @@ handleSubmit = (event) => {
     render() {
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>>
+                <form onSubmit={this.handleSubmit}>
                     <label>Create User:</label>
                     <label>Username:</label>
                         <input type="text" onChange={this.handleChange.bind(this, 'username')} value={this.state.userdata.username}/>
@@ -41,7 +41,7 @@ handleSubmit = (event) => {
                         <input type="password" onChange={this.handleChange.bind(this, 'vpassword')} value={this.state.userdata.vpassword}/>
                     <label>Email:</label>
                         <input type="text" onChange={this.handleChange.bind(this, 'email')} value={this.state.userdata.email}/>
-                    <input type="submit" />
+                    <input className="btn-submit" type="submit" />
                 </form>
             </div>
         )

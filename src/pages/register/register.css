@@ -1,0 +1,22 @@
+.btn-link  {
+    position: relative;
+    left: 48%;
+    top: 80px;
+    padding: 10px;
+  }
+
+.btn-submit {
+    position: absolute;
+    left: 48%;
+    top: 10%;
+    padding: 10px;
+}
+
+  .Register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 10vh;
+  }

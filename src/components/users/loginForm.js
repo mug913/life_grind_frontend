@@ -32,7 +32,7 @@ handleSubmit = event => {
     render() {
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>>
+                <form onSubmit={this.handleSubmit}>
                     <label>Login</label>
                         <input type="text" onChange={this.handleChange.bind(this, 'username')} value={this.state.username}/>
                     <label>Password</label>
