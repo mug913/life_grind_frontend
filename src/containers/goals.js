@@ -7,12 +7,12 @@ class GoalsContainer extends Component {
     render() {
       if (this.props.goals.length === 0) {
         return (
-          <div>
+          <div >
             {"loading"}
           </div>)
       }
       return (
-        <div>
+        <div className="Goallist">
            <Goals deleteGoal={this.props.deleteGoal} goals={this.props.goals}/>
         </div>
       )

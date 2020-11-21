@@ -24,14 +24,14 @@ class Goal extends Component {
     level = `Level: ${goal.level}`}
     if (goal.position !== 0 ) {
     return (
-      <div>
+      <div className="Goal">
         <li key= {goal.id} >
         {goal.name}
         <div>
             {streak}{"\n"}
             {level}{"\n"}
             <div>
-              <RecordsContainer position={goal.position} field_number ={goal.field_number} />
+              <RecordsContainer goal_position={goal.position} field_number ={goal.field_number} />
             </div>
         </div>
         {this.optionDisplay(goal)}

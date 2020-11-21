@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from 'react';
 import { Link } from "react-router-dom";
 import RegisterContainer from '../../containers/register';
+import './register.css'
 
 class Register extends Component {
     render() {
@@ -10,7 +11,7 @@ class Register extends Component {
         <div className="Register">
           <RegisterContainer/>
         </div>
-        <button className="btn btn-link">
+        <button className="btn-link">
             <Link to="/">Cancel</Link>
         </button>
         </div>
