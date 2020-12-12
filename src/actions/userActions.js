@@ -24,9 +24,9 @@ export function addUser(data) {
           if (!response.ok) {throw response}
           return response.json()})
         .then(user => {dispatch(loginUser(user))})
-        })
+        }
       }
-    }
+    
     
   export function loginUser(id) {
     return (dispatch) => {
