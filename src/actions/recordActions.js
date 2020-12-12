@@ -1,4 +1,4 @@
-const base_url = "http://127.0.0.1:9393/api/v1/"
+const base_url = "https://immense-meadow-65005.herokuapp.com/api/v1/"
 
 
 export function addRecord(user_id,goal,record_data) {

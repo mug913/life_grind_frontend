@@ -4,6 +4,7 @@ import DeleteGoal from './deleteGoal';
 import RecordsContainer from '../../containers/records'
 
 class Goal extends Component {
+  state={likes: 0}
 
   handleOnClick = () => {
     this.props.deleteGoal(this.props.goal.id)
@@ -16,6 +17,11 @@ class Goal extends Component {
     return <DeleteGoal goal={goal} />;
   }
   
+  onClick = () =>{
+    this.setState(state => ({
+      likes: this.state.likes + 1})) 
+    } 
+
   render() {
     let streak,level = ""
     const { goal } = this.props;
@@ -30,6 +36,8 @@ class Goal extends Component {
         <div>
             {streak}{"\n"}
             {level}{"\n"}
+            <button onClick={this.onClick}>Like</button>
+            {this.state.likes}
             <div>
               <RecordsContainer goal_position={goal.position} field_number ={goal.field_number} />
             </div>

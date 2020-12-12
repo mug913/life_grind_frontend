@@ -1,5 +1,5 @@
 
-const base_url = "http://127.0.0.1:9393/api/v1/"
+const base_url = "https://immense-meadow-65005.herokuapp.com/api/v1/"
 
 export function addUser(data) {
     return (dispatch) => {
@@ -20,8 +20,11 @@ export function addUser(data) {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)})
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {throw response}
+          return response.json()})
         .then(user => {dispatch(loginUser(user))})
+        })
       }
     }
     
