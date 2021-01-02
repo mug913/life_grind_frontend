@@ -1,7 +1,7 @@
 import {addRecord}from './recordActions'
 
 
-const base_url = runtimeEnv().REACT_APP_API_URL;
+const base_url = process.env.REACT_APP_API_URL;
 
   export function deleteGoal(goal) {
     return (dispatch) => {

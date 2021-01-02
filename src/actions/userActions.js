@@ -1,5 +1,5 @@
 
-const base_url = runtimeEnv().REACT_APP_API_URL;
+const base_url = process.env.REACT_APP_API_URL;
 
 export function addUser(data) {
     return (dispatch) => {
