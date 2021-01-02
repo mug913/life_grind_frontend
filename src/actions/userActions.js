@@ -1,5 +1,5 @@
 
-const base_url = "https://immense-meadow-65005.herokuapp.com/api/v1/"
+const base_url = runtimeEnv().REACT_APP_API_URL;
 
 export function addUser(data) {
     return (dispatch) => {
