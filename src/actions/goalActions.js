@@ -20,7 +20,7 @@ const api_url = process.env.REACT_APP_API_URL;
       fetch(`${api_url}users/${user_id}/goals`,{
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data.goaldata)}
+      body: JSON.stringify({'goal': data.goaldata})}
       )
     .then(response => response.json())
     .then(goal => {
