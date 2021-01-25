@@ -3,17 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mars/heroku-js-runtime-env": "^3.0.2",
+    "@react-native-community/async-storage": "^1.12.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.21.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-native": "^0.63.4",
+    "react-native-async-storage": "0.0.1",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-router-redux": "^4.0.8",
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
+  },
+  "engines": {
+    "npm": "6.14.8",
+    "node": "12.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

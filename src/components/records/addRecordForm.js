@@ -11,8 +11,6 @@ class AddRecordForm extends Component {
         this.handleFieldChange = this.handleFieldChange.bind(this) 
         const recordZero = this.props.records[0]
         this.state = {
-            goal_record: {
-                date: null,
                 field_1_name: recordZero.field_1_name,
                 field_1_type: recordZero.field_1_type,
                 field_1_data: null,
@@ -22,23 +20,20 @@ class AddRecordForm extends Component {
                 field_3_name: recordZero.field_3_name,
                 field_3_type: recordZero.field_3_type,
                 field_3_data: null}
-            };
+            
     }
 
 
 
 handleFieldChange = (number, event) => {
-    let today = new Date()
-    let finalDate = `${today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDay() + 'T'+today.getHours()+':'+today.getMinutes()+':'+today.getSeconds()}`
-    this.setState({...this.state, goal_record: {
-        ...this.state.goal_record,
-        date: finalDate,
+      this.setState({...this.state, 
         [`field_${number}_data`]: event.target.value
-}})};
+})};
 
 handleSubmit = event => {
     event.preventDefault()
     this.props.addRecord(this.props.goal.user_id, this.props.goal, this.state)
+    this.props.formOff()
  }
 
 render() {

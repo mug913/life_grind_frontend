@@ -4,6 +4,7 @@ import DeleteGoal from './deleteGoal';
 import RecordsContainer from '../../containers/records'
 
 class Goal extends Component {
+ 
 
   handleOnClick = () => {
     this.props.deleteGoal(this.props.goal.id)
@@ -16,6 +17,7 @@ class Goal extends Component {
     return <DeleteGoal goal={goal} />;
   }
   
+ 
   render() {
     let streak,level = ""
     const { goal } = this.props;

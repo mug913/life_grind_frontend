@@ -15,7 +15,6 @@ class RecordsContainer extends Component {
        
        
         const records = this.props.records[this.props.goal_position]
-        console.log(`records${records}`)
         return (
         <div>
             {this.recordDisplay(records[records.length-1], this.props.field_number)}

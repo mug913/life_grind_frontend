@@ -1,12 +1,13 @@
-const base_url = "http://127.0.0.1:9393/api/v1/"
+
+const api_url = process.env.REACT_APP_API_URL;
 
 
 export function addRecord(user_id,goal,record_data) {
     return (dispatch) => {
-    fetch(`${base_url}users/${user_id}/goals/${goal.id}/goal_records`,{
+    fetch(`${api_url}users/${user_id}/goals/${goal.id}/goal_records`,{
     method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(record_data)}
+    body: JSON.stringify({'goal_record': record_data})}
     )
   .then(response => response.json())
   .then(record_data => {

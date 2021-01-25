@@ -1,11 +1,12 @@
 import {addRecord}from './recordActions'
 
 
-const base_url = "http://127.0.0.1:9393/api/v1/"
+
+const api_url = process.env.REACT_APP_API_URL;
 
   export function deleteGoal(goal) {
     return (dispatch) => {
-        fetch(`${base_url}goals/${goal.id}`, {
+        fetch(`${api_url}goals/${goal.id}`, {
             method: 'DELETE'})
         .then(response => response.json())
         .then(goal_id => {dispatch({ type: 'DELETE_GOAL', goal_id })
@@ -14,11 +15,12 @@ const base_url = "http://127.0.0.1:9393/api/v1/"
 }
   
   export function addGoal(user_id,data) {
+    console.log(data.goaldata)
     return (dispatch) => {
-      fetch(`${base_url}users/${user_id}/goals`,{
+      fetch(`${api_url}users/${user_id}/goals`,{
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data.goaldata)}
+      body: JSON.stringify({'goal': data.goaldata})}
       )
     .then(response => response.json())
     .then(goal => {

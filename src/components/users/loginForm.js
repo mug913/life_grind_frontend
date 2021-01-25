@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { validateUser} from '../../actions/userActions'
+import { loginUser} from '../../actions/userActions'
 import { withRouter } from 'react-router-dom'
 
 
 class LoginForm extends Component {
 state = {userdata: {
-        username: '',
-        password_digest: ''
+        email: '',
+        password: ''
         },
         redirect: '/home'
 };
@@ -21,10 +21,10 @@ handleChange = (field, event) => {
 
 handleSubmit = event => {
     event.preventDefault()
-    this.props.validateUser(this.state.userdata)
+    this.props.loginUser(this.state.userdata)
     this.setState({
-        username: "",
-        password_digest: ""
+        email: "",
+        password: ""
     })
     this.props.history.push(`${this.state.redirect}`)
   }
@@ -33,10 +33,10 @@ handleSubmit = event => {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Login</label>
-                        <input type="text" onChange={this.handleChange.bind(this, 'username')} value={this.state.username}/>
+                    <label>Email</label>
+                        <input type="text" onChange={this.handleChange.bind(this, 'email')} value={this.state.email}/>
                     <label>Password</label>
-                        <input type="password" onChange={this.handleChange.bind(this, 'password_digest')} value={this.state.password_digest}/>
+                        <input type="password" onChange={this.handleChange.bind(this, 'password')} value={this.state.password}/>
                         <input type="submit" />
                 </form>
             </div>
@@ -44,4 +44,4 @@ handleSubmit = event => {
     }
 }
 
-export default withRouter(connect(null,{validateUser})(LoginForm));
+export default withRouter(connect(null,{loginUser})(LoginForm));
