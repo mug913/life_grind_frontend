@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import NewGoal from './newGoal';
 import DeleteGoal from './deleteGoal';
-import RecordsContainer from '../../containers/records'
+import AddRecord from './addRecord.js'
+import DisplayEntries from './displayEntries.js'
 
 class Goal extends Component {
  
@@ -14,7 +15,11 @@ class Goal extends Component {
   if (goal.name === "new goal") {
     return <NewGoal goal_position={goal.position}/>;
     }
-    return <DeleteGoal goal={goal} />;
+    return <div> 
+      <AddRecord goal_position={goal.position}/>
+      <DisplayEntries goal_position={goal.position} field_number={goal.field_number} />
+      <DeleteGoal goal={goal} />
+    </div>
   }
   
  
@@ -32,9 +37,6 @@ class Goal extends Component {
         <div>
             {streak}{"\n"}
             {level}{"\n"}
-            <div>
-              <RecordsContainer goal_position={goal.position} field_number ={goal.field_number} />
-            </div>
         </div>
         {this.optionDisplay(goal)}
         </li>

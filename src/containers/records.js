@@ -12,13 +12,12 @@ class RecordsContainer extends Component {
     }
 
     render() {
-       
-       
+    
         const records = this.props.records[this.props.goal_position]
+        let position = 1
         return (
         <div>
-            {this.recordDisplay(records[records.length-1], this.props.field_number)}
-       
+            {this.recordDisplay(records[records.length-position], this.props.field_number)}
         </div>
     )}
 }
