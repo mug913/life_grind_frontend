@@ -20,15 +20,15 @@ class DisplayEntries extends Component {
 
     EntryDisplay = () => {
         if (this.state.showEntry) {
-            return <RecordsContainer goal_position={this.props.goal_position} field_number={this.props.field_number} entryOff={this.entryOff}/>;
+            return [<input type="button" onClick={this.handleOnClick} value="Hide Entries" />,
+                    <RecordsContainer goal_position={this.props.goal_position} field_number={this.props.field_number} entryOff={this.entryOff}/>]
         }
-        return null;
+        return <input type="button" onClick={this.handleOnClick} value="Show Entries" />;
     }
 
     render(){
         return(
             <div>
-                <input type="button" onClick={this.handleOnClick} value="Show Entries" />
                 {this.EntryDisplay()}
             </div>
         )
