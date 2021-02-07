@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import './index.css';
 import thunk from 'redux-thunk';
 import appReducer from './reducers/reducers'
-import Routes from "./routes";
+import App from "./App";
 
 const composeEnhancer = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -16,7 +16,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Routes />
+    <App/>
   </Provider>,
   document.getElementById('root')
 );

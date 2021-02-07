@@ -1,10 +1,11 @@
 const initialGoalState = {
-user_goals: [{name: "Day", position: 0, entries: []},
-{name: "new goal", position: 1, field_number: 0, entries: []},
-{name: "new goal", position: 2, field_number: 0, entries: []},
-{name: "new goal", position: 3, field_number: 0, entries: []},
-{name: "new goal", position: 4, field_number: 0, entries: []},
-{name: "new goal", position: 5, field_number: 0, entries: []}]
+user_goals: [
+{name: "Day", streak: 0, position: 0, field_number: 0, entries: []},
+{name: "new goal", streak: 0, position: 1, field_number: 0, entries: []},
+{name: "new goal", streak: 0, position: 2, field_number: 0, entries: []},
+{name: "new goal", streak: 0, position: 3, field_number: 0, entries: []},
+{name: "new goal", streak: 0, position: 4, field_number: 0, entries: []},
+{name: "new goal", streak: 0, position: 5, field_number: 0, entries: []}]
 }
 
 export default function goalsReducer(state = initialGoalState, action) {
@@ -25,6 +26,10 @@ export default function goalsReducer(state = initialGoalState, action) {
             return {...state, 
                 user_goals: insertNewGoal(state.user_goals, action.payload) }
 
+        case "LOAD_GOAL":
+            return {...state, 
+                user_goals: loadGoal(state.user_goals, action.payload) }
+
         default:
             return {...state};
     }
@@ -39,6 +44,12 @@ export default function goalsReducer(state = initialGoalState, action) {
     }
 
     function insertNewGoal(array, action) {
+        return [...array.slice(0, action.position),
+                action,
+                ...array.slice(action.position+1)]
+    }
+
+    function loadGoal(array, action) {
         return [...array.slice(0, action.position),
                 action,
                 ...array.slice(action.position+1)]
