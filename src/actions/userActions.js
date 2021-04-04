@@ -4,8 +4,7 @@ const base_url = process.env.REACT_APP_API_URL;
 
 
   export function loginUser(data) {
-    return (dispatch) => {
-      fetch(`${base_url}auth/sign_in`, {
+      return (dispatch) => {return fetch(`${base_url}auth/sign_in`, {
         method: 'POST',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)})
@@ -30,8 +29,14 @@ const base_url = process.env.REACT_APP_API_URL;
             dispatch(receiveLogin(resJson.data))
           }
         })
+        //.then(response => { return response})
       }
+<<<<<<< HEAD
     }       
+=======
+    }     
+          
+>>>>>>> master
  
           
   function receiveLogin(resp){
