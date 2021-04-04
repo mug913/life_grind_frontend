@@ -30,4 +30,15 @@ const api_url = process.env.REACT_APP_API_URL;
     }
   }
 
+  export function getGoal(user_id,goal_id) {
+    return (dispatch) => {
+      fetch(`${api_url}users/${user_id}/goals/${goal_id}`,{
+      headers: {"Content-Type": "application/json"}}
+      )
+    .then(response => response.json())
+    .then(goal => {
+                 dispatch({ type: 'LOAD_GOAL', payload: goal })
+                 })
+    }
+  }
  

@@ -31,8 +31,12 @@ const base_url = process.env.REACT_APP_API_URL;
         })
         //.then(response => { return response})
       }
+<<<<<<< HEAD
+    }       
+=======
     }     
           
+>>>>>>> master
  
           
   function receiveLogin(resp){
@@ -51,21 +55,7 @@ const base_url = process.env.REACT_APP_API_URL;
           })
         }
       }
-      // .done((response, status, jqXHR) => {
-      //   sessionStorage.setItem('user', 
-      //   JSON.stringify({
-      //     'access-token': jqXHR.getResponseHeader('access-token'),
-      //     client: jqXHR.getResponseHeader('client'),
-      //     uid: response.data.uid
-      //   }));
-      // }).then(response => {
-      //          dispatch({ type: 'LOGIN_USER', payload: response })
-      //          dispatch({ type: 'LOAD_RECORDS', payload: response })
-      //          dispatch({ type: 'LOAD_GOALS', payload: response });
-      //         });
-    //  this.props.history.push('/')
-  
-  
+
 export function addUser(data) {
     return (dispatch) => {
       fetch(`${base_url}auth`,{
@@ -78,33 +68,6 @@ export function addUser(data) {
         if(response.status === `success`){
           dispatch(loginUser(data))
         }
-    }) 
-    //response.json())
-    // .then(user => {dispatch(validateUser(user))
-    //})
+      }) 
     }
   }
-
-  // export function validateUser(data) {
-  //   return (dispatch) => {
-  //     fetch(`${base_url}login`,{
-  //     method: "POST",
-  //     headers: {"Content-Type": "application/json"},
-  //     body: JSON.stringify(data)})
-  //       .then(response => response.json())
-  //       .then(user => {dispatch(loginUser(user))})
-  //     }
-  //   }
-    
-//   export function loginUser(id) {
-//     return (dispatch) => {
-//       fetch(`${base_url}users/${id}`)
-//       .then(response => response.json())
-//       .then(user_data => {
-//         dispatch({ type: 'LOGIN_USER', payload: user_data })
-//         dispatch({ type: 'LOAD_RECORDS', payload: user_data })
-//         dispatch({ type: 'LOAD_GOALS', payload: user_data });
-//         });
-//     };
-//   }
-

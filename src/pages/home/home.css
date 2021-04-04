@@ -24,4 +24,8 @@
     padding: 20px;
   }
 
+  .Record {
+    position: absolute;
+    left: 10%;
+  }
   

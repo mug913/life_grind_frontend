@@ -20,7 +20,7 @@ const initialRecordState = {
 
             case "ADD_GOAL_RECORD":
                 return {...state, 
-                    goal_records: addGoalRecord(state.goal_records, action.record_data, action.goal_data.goaldata.position, action.record_data)}
+                    goal_records: addGoalRecord(state.goal_records, action.record_data, action.goal_data.goaldata.position)}
                  
             default:
                 return {...state};
@@ -44,7 +44,7 @@ const initialRecordState = {
             ...array.slice(position+1)]
     }
     
-     
+ //clear state goal records at position of deleted goal.    
     function clearGoalRecords(array, position) {
         return [...array.slice(0,position),
             [],

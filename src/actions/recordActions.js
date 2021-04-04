@@ -1,3 +1,4 @@
+import { getGoal } from "./goalActions";
 
 const api_url = process.env.REACT_APP_API_URL;
 
@@ -12,17 +13,7 @@ export function addRecord(user_id,goal,record_data) {
   .then(response => response.json())
   .then(record_data => {
           dispatch({ type: 'GET_GOAL_RECORDS', record_data, goal })
+          dispatch(getGoal(user_id,goal.id))
                })
   }
 }
-
-
-// export function getGoalRecords(user_id, goal_id, goal_data) {
-//     return (dispatch) => {
-//       fetch(`${base_url}/users/${user_id}/goals/${goal_id}/goal_records`)
-//       .then(response => response.json())
-//       .then(record_data => {
-//         dispatch({ type: 'GET_GOAL_RECORDS', goal_data, record_data });
-//         });
-//     };
-//   }
