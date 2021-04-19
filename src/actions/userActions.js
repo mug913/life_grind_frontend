@@ -31,12 +31,7 @@ const base_url = process.env.REACT_APP_API_URL;
         })
         //.then(response => { return response})
       }
-<<<<<<< HEAD
     }       
-=======
-    }     
-          
->>>>>>> master
  
           
   function receiveLogin(resp){

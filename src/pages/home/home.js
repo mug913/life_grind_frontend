@@ -1,6 +1,7 @@
 import React from "react";
 import {Component} from 'react';
 import { connect } from 'react-redux';
+import ColorBar from '../../components/background/gradient';
 import GoalsContainer from '../../containers/goals'
 import './home.css'
 
@@ -10,11 +11,13 @@ render(){
     
     return (
       <div>
+        < ColorBar color1="rgb(255,000,000)" />
         <div className="Title">
             <h1>{this.props.username}'s Page</h1>
         </div>
         <div className="Goals">
             <p>user id: {this.props.user_id}</p>
+            
             < GoalsContainer />
             </div>
       </div> 

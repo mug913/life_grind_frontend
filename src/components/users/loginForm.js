@@ -2,14 +2,12 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import { loginUser} from '../../actions/userActions'
 import { withRouter } from 'react-router-dom'
-import {useAppContext} from "../../libs/contextLib"
 import {useHistory} from 'react-router-dom'
 
 
  function LoginForm(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { userHasAuthenticated } = useAppContext();
     const history = useHistory();
   
     function validateForm() {
@@ -20,7 +18,6 @@ async function handleSubmit(event) {
     event.preventDefault()
     try {
         let response = await props.loginUser({email, password})
-        userHasAuthenticated(true);
         history.push("/home")
     }catch (e) {
         alert("Incorrect LogIn Information")
